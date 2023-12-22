@@ -36,13 +36,14 @@ function getWinner(playerScore, computerScore) {
     }
 }
 
+function game() {
+    for (let i = 0; i < 5; i++) {
+        const playerSelection = prompt("Enter rock, paper or scissor:", "rock");
+        computerSelection = getComputerChoice();
+        console.log(playRound(playerSelection, computerSelection));
+    }
+    console.log(getWinner(playerScore, computerScore));
 
-
-for (let i = 0; i < 5; i++) {
-    const playerSelection = prompt("Enter rock, paper or scissor:", "rock");
-    computerSelection = getComputerChoice();
-    console.log(playRound(playerSelection, computerSelection));
 }
 
-console.log(getWinner(playerScore, computerScore));
-// console.log(playRound(playerSelection, computerSelection));
+game();
