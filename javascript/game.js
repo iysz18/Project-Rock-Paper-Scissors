@@ -11,8 +11,8 @@ computerScore = 0;
 function playRound(playerSelection, computerSelection) {
     // detect possible tie
     if (playerSelection === computerSelection)  {
-        playerScore +=1;
-        computerScore +=1;
+       /*  playerScore +=1;
+        computerScore +=1; */
         return `Tie! ${playerSelection} & ${computerSelection}`;
     }
     else if (playerSelection === "rock" && computerSelection === "scissors" ||
@@ -40,8 +40,10 @@ function getWinner(playerScore, computerScore) {
 // the actual function that runs the game, a set of 5 rounds
 function game() {
     for (let i = 0; i < 5; i++) {
-        const playerSelection = prompt("Enter rock, paper or scissor:", "rock");
-        computerSelection = getComputerChoice();
+        let playerSelection = prompt("Enter rock, paper or scissor:", "rock");
+        let computerSelection = getComputerChoice();
+        playerSelection = playerSelection.charAt(0).toUpperCase() + playerSelection.slice(1).toLowerCase();
+        computerSelection = computerSelection.charAt(0).toUpperCase() + computerSelection.slice(1).toLowerCase();
         console.log(playRound(playerSelection, computerSelection));
     }
     console.log(`Game Over! ${getWinner(playerScore, computerScore)}\nScore:\nPlayer: ${playerScore} | Computer: ${computerScore}.`);
