@@ -32,7 +32,7 @@ function getWinner(playerScore, computerScore) {
         return `You won! Score: ${playerScore} & ${computerScore}`;
     }
     else {
-        return `You Lost! Score: ${placomputerScore} & ${playerScore}`;
+        return `You Lost! Score: ${computerScore} & ${playerScore}`;
     }
 }
 
