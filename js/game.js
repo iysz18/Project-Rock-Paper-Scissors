@@ -10,18 +10,18 @@ computerScore = 0;
 // new implementation
 const rockChoice = document.querySelector("#rockBtn");
 const paperChoice = document.querySelector("#paperBtn");
-const scissorBtn = document.querySelector("#scissorBtn");
+const scissorsBtn = document.querySelector("#scissorsBtn");
 
 rockChoice.addEventListener('click', () => {
-
+    playRound('rock');
 });
 
 paperChoice.addEventListener('click', () => {
-
+    playRound('paper');
 });
 
 scissorBtn.addEventListener('click', () => {
-
+    playRound('scissors');
 });
 // end of new implementaiton
 
@@ -57,7 +57,7 @@ function getWinner(playerScore, computerScore) {
 
 // the actual function that runs the game, a set of 5 rounds
 function game() {
-    //
+    // todo
 }
 
 game();
