@@ -7,36 +7,18 @@ let playerScore, computerScore;
 playerScore = 0;
 computerScore = 0;
 
-// new implementation
-const rockChoice = document.querySelector("#rockBtn");
-const paperChoice = document.querySelector("#paperBtn");
-const scissorsBtn = document.querySelector("#scissorsBtn");
 
-rockChoice.addEventListener('click', () => {
-    playRound('rock');
-});
-
-paperChoice.addEventListener('click', () => {
-    playRound('paper');
-});
-
-scissorBtn.addEventListener('click', () => {
-    playRound('scissors');
-});
-// end of new implementaiton
 
 // function that determines winner of a round and returns the winner to the caller
 function playRound(playerSelection, computerSelection) {
     // detect possible tie
     if (playerSelection === computerSelection)  {
-       /*  playerScore +=1;
-        computerScore +=1; */
         return `Tie! ${playerSelection} & ${computerSelection}`;
     }
     else if (playerSelection === "rock" && computerSelection === "scissors" ||
              playerSelection === "scissors" && computerSelection === "paper" ||
              playerSelection === "paper" && computerSelection === "rock")  {
-                playerScore +=1 ;
+                playerScore += 1 ;
                 return `You Won! ${playerSelection} beats ${computerSelection}.`;
              }
     else {
@@ -54,10 +36,32 @@ function getWinner(playerScore, computerScore) {
         return `You lost the game!`;
     }
 }
+let computerSelection = getComputerChoice(); 
+    
+let rockChoice = document.querySelector("#rockBtn");
+let paperChoice = document.querySelector("#paperBtn");
+let scissorsBtn = document.querySelector("#scissorsBtn");
+let scoreboardDiv = document.querySelector('#scoreboard');
+let winnerDiv = document.querySelector('#winnerBox');
 
 // the actual function that runs the game, a set of 5 rounds
 function game() {
-    // todo
+
+
+        rockChoice.addEventListener('click', () => {
+            scoreboardDiv.textContent = playRound('rock', computerSelection);
+        });
+        
+        paperChoice.addEventListener('click', () => {
+            scoreboardDiv.textContent = playRound('paper', computerSelection);
+        });
+        
+        scissorsBtn.addEventListener('click', () => {
+        scoreboardDiv.textContent = playRound('scissors', computerSelection);
+        });
+
+        // get the winner
+        winnerDiv.textContent = getWinner(playerScore, computerScore); 
 }
 
 game();
