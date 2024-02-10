@@ -1,32 +1,67 @@
+// overall variables 
+let playerScore = 0;
+let computerScore = 0;
+
+
+// reference and add logic for each choice button 'rock', 'paper' & 'scissors'
+const roundStatus = document.querySelector('#roundStatus');
+const pScore = document.querySelector('#playerScore');
+const cScore = document.querySelector('#computerScore');
+const result = document.querySelector('#endResultContainer');
+
+const rockChoice = document.querySelector('#rockBtn');
+rockChoice.addEventListener('click', () => {
+    roundStatus.textContent = playRound('rock', getComputerChoice());
+    updateScore();
+});
+
+const paperChoice = document.querySelector('#paperBtn');
+paperChoice.addEventListener('click', () => {
+    roundStatus.textContent = playRound('paper', getComputerChoice());
+    updateScore();
+});
+
+const scissorsChoice = document.querySelector('#scissorsBtn');
+scissorsChoice.addEventListener('click', () => {
+    roundStatus.textContent = playRound('scissors', getComputerChoice());
+    updateScore();
+});
+
+function updateScore() {
+    pScore.textContent = playerScore;
+    cScore.textContent = computerScore;
+    if (playerScore === 5 || computerScore === 5) {
+        result.textContent = getWinner(playerScore, computerScore);
+    }
+}
+
+// get the choice for the computer
 function getComputerChoice() {
     let choiceArr = ["rock", "scissors", "paper"];
     return choiceArr[Math.floor(Math.random() * choiceArr.length)];
 }
 
-let playerScore, computerScore;
-playerScore = 0;
-computerScore = 0;
-
-
-
-// function that determines winner of a round and returns the winner to the caller
+// the logic for win and lose for current round
 function playRound(playerSelection, computerSelection) {
-    // detect possible tie
     if (playerSelection === computerSelection)  {
         return `Tie! ${playerSelection} & ${computerSelection}`;
     }
     else if (playerSelection === "rock" && computerSelection === "scissors" ||
              playerSelection === "scissors" && computerSelection === "paper" ||
              playerSelection === "paper" && computerSelection === "rock")  {
-                playerScore += 1 ;
+                playerScore += 1;
+                pScore.textContent = playerScore;
                 return `You Won! ${playerSelection} beats ${computerSelection}.`;
              }
     else {
         computerScore += 1;
+        cScore.textContent = computerScore;
         return `You Lost! ${computerSelection} beats ${playerSelection}.`;
     }
 }
-// function to determine the winner of the game, also detect a tie between player and computer score
+
+
+// get the winner of the current round
 function getWinner(playerScore, computerScore) {
     if (playerScore === computerScore) return "Tie between player and computer, play again.";
     else if (playerScore > computerScore) {
@@ -36,32 +71,3 @@ function getWinner(playerScore, computerScore) {
         return `You lost the game!`;
     }
 }
-let computerSelection = getComputerChoice(); 
-    
-let rockChoice = document.querySelector("#rockBtn");
-let paperChoice = document.querySelector("#paperBtn");
-let scissorsBtn = document.querySelector("#scissorsBtn");
-let scoreboardDiv = document.querySelector('#scoreboard');
-let winnerDiv = document.querySelector('#winnerBox');
-
-// the actual function that runs the game, a set of 5 rounds
-function game() {
-
-
-        rockChoice.addEventListener('click', () => {
-            scoreboardDiv.textContent = playRound('rock', computerSelection);
-        });
-        
-        paperChoice.addEventListener('click', () => {
-            scoreboardDiv.textContent = playRound('paper', computerSelection);
-        });
-        
-        scissorsBtn.addEventListener('click', () => {
-        scoreboardDiv.textContent = playRound('scissors', computerSelection);
-        });
-
-        // get the winner
-        winnerDiv.textContent = getWinner(playerScore, computerScore); 
-}
-
-game();
