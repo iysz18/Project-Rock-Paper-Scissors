@@ -7,19 +7,23 @@
     <link rel="stylesheet" href="./css/style.css">
 </head>
 <body>
-    <div id="btnContainer">
-        <button id="rockBtn">Rock</button>
-        <button id="paperBtn">Paper</button>
-        <button id="scissorsBtn">Scissors</button>
+    <div id="gameContainer">
+        <div id="btnContainer">
+            <button id="rockBtn">Rock</button>
+            <button id="paperBtn">Paper</button>
+            <button id="scissorsBtn">Scissors</button>
+        </div>
+        <div id="roundStatusContainer">
+            <p id="roundStatus">Round Status:</p>
+        </div>
+        <div id="scoreContainer">
+            <p id="playerScore">Player: </p>
+            <p id="computerScore">Computer: </p>
+        </div>
+        <div id="endResultContainer">result: </div>
     </div>
-    <div id="roundStatusContainer">
-        <p id="roundStatus">Round Status:</p>
-    </div>
-    <div id="scoreContainer">
-        <p id="playerScore">Player: </p>
-        <p id="computerScore">Computer: </p>
-    </div>
-    <div id="endResultContainer">result: </div>
+
+    
     <script src="./js/game.js"></script>
 </body>
 </html>
