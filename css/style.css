@@ -1,0 +1,28 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+#gameContainer {
+    border: 3px black solid;
+    flex-wrap: 1;
+    width: 300px;
+}
+
+#endResultContainer {
+    border-top: 3px black solid;
+}
+
+#btnContainer {
+    display: flex;
+    justify-content: space-around;
+    border-bottom: 3px black solid;
+    padding: 5px;
+}
+
+button {
+    font-size: 15px;
+    font-weight: bold;
+}
