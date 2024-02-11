@@ -7,7 +7,7 @@ let computerScore = 0;
 const roundStatus = document.querySelector('#roundStatus');
 const pScore = document.querySelector('#playerScore');
 const cScore = document.querySelector('#computerScore');
-const result = document.querySelector('#endResultContainer');
+const result = document.querySelector('#winnerText');
 
 const rockChoice = document.querySelector('#rockBtn');
 rockChoice.addEventListener('click', () => {
